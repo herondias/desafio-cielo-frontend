@@ -1,0 +1,34 @@
+<div class="table-responsive-lg">
+  <table class="table table-bordered table-striped table-hove table-sm">
+    <thead>
+      <tr>
+        <th scope="col" *ngFor="let col of cols" [style.width]="col.width" [style.text-align]="'center'">{{col.title}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-template [ngIf]="lancamentos?.length">
+        <tr *ngFor="let item of lancamentos">
+          <td *ngFor="let col of cols" [ngSwitch]="col.field" [style.text-align]="col.align">
+            <ng-template [ngSwitchCase]="'valorFinal'">
+              {{ item[col.field] | currency:'BRL' }}
+            </ng-template>
+            <ng-template [ngSwitchCase]="'dadosBancarios'">
+              {{ item[col.field].nomeBanco }}
+              Ag {{ item[col.field].numeroAgencia }}
+              Cc {{ item[col.field].numeroContaCorrente }}
+            </ng-template>
+            <ng-template ngSwitchDefault>
+              {{ item[col.field] }}
+            </ng-template>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template [ngIf]="!lancamentos?.length">
+        <tr>
+          <td colspan="7" [style.text-align]="'center'">Dados não encontrados.</td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>

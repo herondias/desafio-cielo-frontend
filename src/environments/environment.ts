@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  URL_EXTRATO: 'http://localhost:8081/api/v1/extrato',
+  BACKEND_TIMEOUT: 30000,
+  BACKEND_RETRY_TIMES: 3
 };
 
 /*
