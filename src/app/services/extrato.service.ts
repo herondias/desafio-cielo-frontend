@@ -9,12 +9,12 @@ import { ExtratoModel } from '../models/extrato.interface';
   providedIn: 'root'
 })
 export class ExtratoService {
-  private urlEndPoint = environment.URL_EXTRATO;
+  private urlEndPoint = environment.URL_API;
 
   constructor(private http$: HttpClient, private httpBack: HttpBackend) { }
 
   getAll(): Observable<ExtratoModel> {
-    return this.http$.get<ExtratoModel>(this.urlEndPoint).pipe(
+    return this.http$.get<ExtratoModel>(`${this.urlEndPoint}/v1/extrato`).pipe(
       timeout(environment.BACKEND_TIMEOUT),
       retry(environment.BACKEND_RETRY_TIMES)
     );

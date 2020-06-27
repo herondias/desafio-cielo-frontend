@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL_EXTRATO: 'http://localhost:8081/api/v1/extrato',
+  URL_API: 'http://localhost:8081/api/',
   BACKEND_TIMEOUT: 30000,
   BACKEND_RETRY_TIMES: 3
 };
