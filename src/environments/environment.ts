@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL_API: 'http://localhost:8081/api/',
+  URL_API: 'http://localhost:8081/api',
   BACKEND_TIMEOUT: 30000,
   BACKEND_RETRY_TIMES: 3
 };
